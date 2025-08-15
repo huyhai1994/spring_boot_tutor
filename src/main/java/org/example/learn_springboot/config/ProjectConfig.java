@@ -12,4 +12,14 @@ public class ProjectConfig {
         p.setName("KoKo");
         return p;
     }
+
+    @Bean
+    Integer ten() {
+        return 0;
+    }
+
+    @Bean
+    String hello(){
+        return "Hello";
+    }
 }
