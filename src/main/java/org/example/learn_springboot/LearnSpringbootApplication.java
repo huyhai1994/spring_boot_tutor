@@ -1,13 +1,13 @@
 package org.example.learn_springboot;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.example.learn_springboot.config.ProjectConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
 public class LearnSpringbootApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LearnSpringbootApplication.class, args);
+        var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
+
     }
 
 }
