@@ -8,10 +8,12 @@ public class LearnSpringbootApplication {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Parrot p = context.getBean(Parrot.class);
-        System.out.println(p.getName());
-        String s = context.getBean(String.class);
-        System.out.println(s);
+        Parrot koko = context.getBean("Koko", Parrot.class);
+        Parrot miki = context.getBean("Miki", Parrot.class);
+        Parrot riki = context.getBean("Riki", Parrot.class);
+        System.out.println(koko.getName());
+        System.out.println(miki.getName());
+        System.out.println(riki.getName());
     }
 
 }
