@@ -10,8 +10,6 @@ public class LearnSpringbootApplication {
 
         Parrot p = context.getBean(Parrot.class);
         System.out.println(p.getName());
-        String s = context.getBean(String.class);
-        System.out.println(s);
     }
 
 }
