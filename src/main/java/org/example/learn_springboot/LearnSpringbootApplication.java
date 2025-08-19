@@ -11,11 +11,12 @@ public class LearnSpringbootApplication {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
         Parrot x = new Parrot();
-        x.setName("kiki");
-        Supplier<Parrot> parrotSupplier = () -> x;
+        x.setName("kiki");                         // (1) Creating the instance we want to add to the Spring context
+        Supplier<Parrot> parrotSupplier = () -> x; //(2) define a Supplier to return this instance
         context.registerBean("parrot1", Parrot.class, parrotSupplier);
-
+        // (3) call the registerBean() method to add the instance to the Spring context;
         Parrot  p = context.getBean(Parrot.class);
         System.out.println(p.getName());
+        // (4) verify the bean is now in the context, we refer to the parrot bean and print its name in the console
     }
 }
