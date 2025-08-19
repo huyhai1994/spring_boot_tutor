@@ -1,10 +1,8 @@
 package org.example.learn_springboot.main;
 
-import org.springframework.stereotype.Component;
 
-@Component // Tells Spring to add an instance of this class in its context
 public class Parrot {
-    private String name = "koko";
+    private String name;
 
     public Parrot() {
         System.out.println("bean Parrot created!!!");
