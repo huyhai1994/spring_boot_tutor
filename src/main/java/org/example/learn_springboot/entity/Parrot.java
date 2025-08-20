@@ -15,4 +15,11 @@ public class Parrot {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Parrot{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
