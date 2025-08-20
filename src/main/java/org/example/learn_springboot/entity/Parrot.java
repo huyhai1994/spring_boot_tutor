@@ -5,7 +5,7 @@ public class Parrot {
     private String name;
 
     public Parrot() {
-        System.out.println("bean Parrot created with Hashcode: "+ this.hashCode());
+        System.out.println("bean Parrot created with Hashcode: " + this.hashCode());
     }
 
     public void setName(String name) {
