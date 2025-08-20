@@ -1,4 +1,4 @@
-package org.example.learn_springboot.main;
+package org.example.learn_springboot.entity;
 
 
 public class Parrot {
