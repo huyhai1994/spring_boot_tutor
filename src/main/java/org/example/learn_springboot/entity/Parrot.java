@@ -1,8 +1,10 @@
 package org.example.learn_springboot.entity;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Parrot {
-    private String name;
+    private String name = "Koko";
 
     public Parrot() {
         System.out.println("bean Parrot created with Hashcode: " + this.hashCode());
