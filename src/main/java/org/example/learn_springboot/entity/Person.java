@@ -4,6 +4,10 @@ public class Person {
     private String name;
     private Parrot parrot;
 
+    public Person() {
+        System.out.println("bean Person created with Hashcode: "+ this.hashCode());
+    }
+
     public String getName() {
         return name;
     }
