@@ -12,6 +12,8 @@ public class LearnSpringbootApplication {
         try {
             var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
             Person person = context.getBean(Person.class);
+            person.setName("Ella");
+            System.out.println("Person's name: " + person.getName());
             Parrot parrot = context.getBean("parrot2", Parrot.class);
             System.out.println("Parrot' name: " + parrot.getName());
             System.out.println("Person's parrot: " + person.getParrot());

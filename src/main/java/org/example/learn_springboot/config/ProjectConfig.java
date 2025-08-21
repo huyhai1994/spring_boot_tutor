@@ -4,9 +4,11 @@ import org.example.learn_springboot.entity.Parrot;
 import org.example.learn_springboot.entity.Person;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan(basePackages = "org.example.learn_springboot.entity")
 public class ProjectConfig {
     @Bean
     public Parrot parrot1() {
@@ -22,13 +24,4 @@ public class ProjectConfig {
         return p;
     }
 
-    @Bean
-    public Person person(
-            @Qualifier("parrot2") Parrot parrot
-    ) {
-        Person p = new Person();
-        p.setName("Ella");
-        p.setParrot(parrot);
-        return p;
-    }
 }
