@@ -1,18 +1,7 @@
 package org.example.learn_springboot.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-@Component
 public class Parrot {
-    private String name = "Koko";
-    private final Person person;
-
-    @Autowired
-    public Parrot(Person person) {
-        this.person = person;
-        System.out.println("bean Parrot created with Hashcode: " + this.hashCode());
-    }
+    private String name;
 
     public String getName() {
         return name;
@@ -23,5 +12,9 @@ public class Parrot {
         return "Parrot{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
