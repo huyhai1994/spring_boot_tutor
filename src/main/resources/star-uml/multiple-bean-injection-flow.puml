@@ -1,0 +1,32 @@
+@startuml
+/'This diagram is called an activity diagram in UML (Unified Modeling Language). It visually represents the flow of logic for multiple bean injection in Spring, showing decision points and actions.'/
+
+skinparam backgroundColor #E6E6E6
+
+skinparam activity {
+  BackgroundColor #E6E6E6
+  BorderColor #666666
+}
+
+skinparam defaultFontColor #333333
+skinparam ArrowColor #555555
+start
+:Start Dependency Injection\n(parameter name = p);
+if (Bean with name 'p' exists in context?) then (Yes)
+  :Inject the bean with name 'p';
+  stop
+else (No)
+  if (Is there a @Primary bean of the same type?) then (Yes)
+    :Inject the @Primary bean;
+    stop
+  else (No)
+    if (@Qualifier specified?) then (Yes)
+      :Inject the bean specified by @Qualifier;
+      stop
+    else (No)
+      :Throw Exception\n(NoUniqueBeanDefinitionException:\nMultiple beans of the same type found);
+      stop
+    endif
+  endif
+endif
+@enduml
