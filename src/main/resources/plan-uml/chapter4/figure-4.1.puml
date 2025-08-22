@@ -1,0 +1,41 @@
+@startuml
+
+skinparam backgroundColor #E6E6E6
+
+skinparam activity {
+  BackgroundColor #E6E6E6
+  BorderColor #666666
+}
+
+skinparam defaultFontColor #333333
+skinparam ArrowColor #555555
+title DeliveryDetailsPrinter delegates sorting to SorterByAddress
+
+class DeliveryDetailsPrinter{
+    +printDetails()
+}
+
+class SorterByAddress(){
+    +sortDetails()
+}
+
+DeliveryDetailsPrinter ..> SorterByAddress : Uses
+
+note top of DeliveryDetailsPrinter
+  To sort the details before printing,
+  the DeliveryDetailsPrinter needs to sort
+  the details by their delivery addresses.
+end note
+
+note top of SorterByAddress
+  The SorterByAddress object
+  implements the sorting responsibility.
+end note
+
+note bottom of DeliveryDetailsPrinter
+  The DeliveryDetailsPrinter delegates the
+  sorting responsibility to another object.
+end note
+
+
+@enduml
