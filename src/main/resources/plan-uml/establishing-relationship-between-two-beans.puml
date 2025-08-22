@@ -1,0 +1,49 @@
+@startuml
+skinparam backgroundColor #E6E6E6
+
+skinparam activity {
+  BackgroundColor #E6E6E6
+  BorderColor #666666
+}
+
+skinparam defaultFontColor #333333
+skinparam ArrowColor #555555
+title Spring Bean Relationship Approaches
+
+package "Spring Context" {
+  class BeanA
+  class BeanB
+}
+
+note top of BeanA
+Direct @Bean reference:
+- Method annotated with @Bean
+- Returns existing bean from context
+end note
+
+note top of BeanB
+@Bean method with parameter:
+- Spring searches for matching bean
+- Injects into parameter
+end note
+
+BeanA --> BeanB : Reference/Parameter Injection
+
+package "Autowired Injection" {
+  class ClassX {
+    - field: BeanA
+    - constructor(BeanA)
+    - setBeanA(BeanA)
+  }
+}
+
+note right of ClassX
+@Autowired can be applied:
+1. Field injection
+2. Constructor injection (preferred)
+3. Setter injection
+end note
+
+BeanA --> ClassX : Injected via @Autowired
+
+@enduml
