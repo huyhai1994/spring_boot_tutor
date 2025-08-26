@@ -1,0 +1,40 @@
+@startuml
+
+interface CommentRepository {
+    +storeComment()
+}
+
+interface CommentNotificationProxy {
+    +sendComment()
+}
+
+class CommentService {
+    +publishComment()
+}
+
+class DBCommentRepository {
+    +storeComment()
+}
+
+class EmailCommentNotificationProxy {
+    +sendComment()
+}
+
+CommentService --> CommentRepository : Uses
+CommentService --> CommentNotificationProxy : Uses
+
+DBCommentRepository ..|> CommentRepository : Implements
+EmailCommentNotificationProxy ..|> CommentNotificationProxy : Implements
+
+note top of CommentRepository
+  Interfaces are abstract.
+  We never use stereotype
+  annotations on interfaces.
+end note
+
+note bottom of CommentService
+  We use stereotype annotations
+  for these classes.
+end note
+
+@enduml
