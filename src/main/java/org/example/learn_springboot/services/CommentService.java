@@ -1,10 +1,9 @@
 package org.example.learn_springboot.services;
 
 import org.example.learn_springboot.model.Comment;
-import org.example.learn_springboot.repositories.CommentNotificationProxy;
+import org.example.learn_springboot.proxies.CommentNotificationProxy;
 import org.example.learn_springboot.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service

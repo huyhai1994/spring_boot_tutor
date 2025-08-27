@@ -1,4 +1,4 @@
-package org.example.learn_springboot.repositories;
+package org.example.learn_springboot.proxies;
 
 import org.example.learn_springboot.model.Comment;
 
