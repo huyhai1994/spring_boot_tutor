@@ -3,7 +3,6 @@ package org.example.learn_springboot.repositories;
 import org.example.learn_springboot.model.Comment;
 import org.springframework.stereotype.Component;
 
-@Component
 public class DBCommentRepository implements CommentRepository {
 
     @Override
