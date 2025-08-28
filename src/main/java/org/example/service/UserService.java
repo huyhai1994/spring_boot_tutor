@@ -4,10 +4,10 @@ import org.example.repository.CommentRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommentService {
+public class UserService {
     private final CommentRepository commentRepository;
 
-    public CommentService(CommentRepository commentRepository) {
+    public UserService(CommentRepository commentRepository) {
         this.commentRepository = commentRepository;
     }
 
