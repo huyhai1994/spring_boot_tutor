@@ -17,15 +17,15 @@ public class Main {
         var c = new AnnotationConfigApplicationContext(ProjectConfig.class);
         var commentService = c.getBean(CommentService.class);
         int threadNumbers = 5;
-        var iteration = 10000;
+        long iteration = 100_000_000L;
         ExecutorService executorService = Executors.newFixedThreadPool(threadNumbers);
 
         long startTime = System.currentTimeMillis();
 
         for (int t = 0; t < threadNumbers; t++) {
             executorService.execute(() -> {
-                for (int i = 0; i < iteration; i++) {
-                    System.out.println(commentService.increaseCounter() + " " + Thread.currentThread().getName());
+                for (long i = 0; i < iteration; i++) {
+                    commentService.increaseCounter();
                 }
             });
         }
