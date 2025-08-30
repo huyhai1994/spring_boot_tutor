@@ -14,4 +14,13 @@ public class CommentService {
     public CommentRepository getCommentRepository() {
         return commentRepository;
     }
+
+    public int increaseCounter() {
+        return commentRepository.addOne();
+
+    }
+
+    public int getCounter() {
+        return commentRepository.getCounter();
+    }
 }
