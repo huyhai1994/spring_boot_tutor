@@ -1,0 +1,27 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "Spring Context" {
+  [commentRepository <<bean>>]
+  [commentService <<bean>>]
+  [userService <<bean>>]
+}
+
+' Repository
+[CommentRepository] -down-> [commentRepository] : @Repository\nAdds the bean
+
+' Service: CommentService
+[CommentService] -down-> [commentService] : @Service\nAdds the bean
+[commentRepository] --> [commentService] : @Autowired\nGets the bean
+
+' Service: UserService
+[UserService] -down-> [userService] : @Service\nAdds the bean
+[commentRepository] --> [userService] : @Autowired\nGets this bean
+
+note bottom
+Both service classes use @Autowired to request Spring
+to inject a bean of type CommentRepository.
+Spring injects the single instance into both services.
+Both now share the same instance of CommentRepository.
+end note
+@enduml

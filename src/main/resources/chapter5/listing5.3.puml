@@ -1,0 +1,14 @@
+@startuml
+start
+
+:Creates the Spring context
+based on the configuration class;
+
+:Gets the references of the two service beans
+in the Spring context;
+
+:Compares the references for the repository dependency
+injected by Spring;
+
+stop
+@enduml
