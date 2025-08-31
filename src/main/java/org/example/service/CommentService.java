@@ -21,6 +21,7 @@ public class CommentService {
     }
 
     public int increaseCounter() {
+        System.out.println("Thread " + Thread.currentThread().getName());
         return commentRepository.addOne();
 
     }
