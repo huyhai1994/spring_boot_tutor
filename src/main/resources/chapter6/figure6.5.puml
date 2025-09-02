@@ -1,0 +1,25 @@
+@startuml
+start
+
+:Enable aspect mechanism in Spring app;
+note right
+Annotate configuration class
+with @EnableAspectJAutoProxy
+end note
+
+:Create a new class and annotate with @Aspect;
+note right
+Use @Bean or stereotype annotations
+to add a bean in the Spring context
+end note
+
+:Define a method with aspect logic;
+note right
+Tell Spring when and which methods
+to intercept using advice annotation
+end note
+
+:Implement the aspect logic;
+
+stop
+@enduml
