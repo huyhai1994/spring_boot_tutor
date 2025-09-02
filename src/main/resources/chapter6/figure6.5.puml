@@ -1,6 +1,15 @@
 @startuml
 start
 
+skinparam backgroundColor #E6E6E6
+
+skinparam activity {
+  BackgroundColor #E6E6E6
+  BorderColor #666666
+}
+
+skinparam defaultFontColor #333333
+skinparam ArrowColor #555555
 :Enable aspect mechanism in Spring app;
 note right
 Annotate configuration class
