@@ -13,7 +13,7 @@ public class LoggingAspect {
     private final Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
     @Around("@annotation(ToLog)")
-    public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
+    public void log(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         Object[] arguments = joinPoint.getArgs();
 
@@ -21,13 +21,6 @@ public class LoggingAspect {
                 " with parameters " + Arrays.asList(arguments)
                 + "Method will execute");
 
-        Comment comment = new Comment();
-        comment.setText("Some other text!");
-
-        Object[] newArguments = {comment};
-        Object returnedByMethod = joinPoint.proceed(newArguments);
-
-        logger.info("Method executed and returned " + returnedByMethod);
-        return "FAILED";
+         joinPoint.proceed();
     }
 }

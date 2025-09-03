@@ -19,9 +19,10 @@ public class Main {
         comment.setText("Demo comment");
         comment.setAuthor("Natasha");
 
-        String value = service.publishComment(comment);
+        service.deleteComment(comment);
+        service.publishComment(comment);
+        service.editComment(comment);
 
-        logger.info(value);
     }
 }
 
