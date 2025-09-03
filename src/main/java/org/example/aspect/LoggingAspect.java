@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class LoggingAspect {
     private final Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
-    @Around("execution(* org.example.service.*.*(..))")
+    @Around("@annotation(ToLog)")
     public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         Object[] arguments = joinPoint.getArgs();
