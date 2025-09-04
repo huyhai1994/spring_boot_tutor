@@ -20,8 +20,6 @@ public class Main {
         comment.setAuthor("Natasha");
 
         service.deleteComment(comment);
-        service.publishComment(comment);
-        service.editComment(comment);
 
     }
 }
