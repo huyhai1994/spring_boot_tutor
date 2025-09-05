@@ -1,31 +1,27 @@
 package org.example.service;
 
-import org.example.repository.CommentRepository;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
+import org.example.aspect.ToLog;
+import org.example.entity.Comment;
 import org.springframework.stereotype.Service;
 
+import java.util.logging.Logger;
+
 @Service
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class CommentService {
-    private final CommentRepository commentRepository;
+    private final Logger logger = Logger.getLogger(CommentService.class.getName());
 
-    public CommentService(CommentRepository commentRepository) {
-        System.out.println("CommentService instance created in thread: " + Thread.currentThread().getName());
-        this.commentRepository = commentRepository;
+    @ToLog
+    public void publishComment(Comment comment) {
+        logger.info("Publishing comment: " + comment.getText());
     }
 
-    public CommentRepository getCommentRepository() {
-        return commentRepository;
+    @ToLog
+    public void deleteComment(Comment comment) {
+        logger.info("Deleting comment: " + comment.getText());
     }
 
-    public int increaseCounter() {
-        return commentRepository.addOne();
-
-    }
-
-    public int getCounter() {
-        return commentRepository.getCounter();
+    @ToLog
+    public void editComment(Comment comment) {
+        logger.info("Editing comment: " + comment.getText());
     }
 }
